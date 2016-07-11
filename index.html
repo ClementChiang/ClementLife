@@ -1,0 +1,301 @@
+<!doctype html>
+<html style="auto: hidden; height: 100%;">
+<html>
+  <head>
+		
+    <link rel="stylesheet" type="text/css" href="stylesheets/jquery.fullPage.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="stylesheets/kickstart.css" media="all" /> <!-- KICKSTART -->
+	<link rel="stylesheet" type="text/css" href="stylesheets/examples.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	
+	<script src="javascripts/kickstart.js"></script> <!-- KICKSTART -->
+	
+	<script src="javascripts/jquery.min.js"></script>
+
+	<script type="text/javascript" src="javascripts/scrolloverflow.min.js"></script>
+
+	<script type="text/javascript" src="javascripts/jquery.fullPage.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#fullpage').fullpage({
+				sectionsColor: ['#FFFFFF', '#FFDCB9', '#D3FF93', '#FFFF93', '#D9FFFF', 'whitesmoke'],
+				anchors: ['HomPage','BackGround','News','Others','Contact With Clement'],
+				css3: true,
+				navigation: true,
+				slidesNavigation: true,
+				menu: '#menu',
+				navigationPosition: 'right',
+				navigationTooltips: ['HomPage','BackGround','News','Others','Contact With Clement'],
+				scrollingSpeed: 1000
+			});
+		});
+		
+		function ShowTime(){
+			document.getElementById("showbox").innerHTML = new Date();
+			setTimeout("ShowTime()",1000);
+		}
+		
+		function QRCode(content, width, height){
+		// 預設寬高為 120x120
+		width = !!width ? width : 120 ;
+		height = !!height ? height : 120;
+		// 編碼
+		content = encodeURIComponent("http://www.facebook.com/ClementChiang920");
+		return 'http://chart.apis.google.com/chart?cht=qr&chl=' + content + '&chs=' + width + 'x' + height;
+		}
+		
+		function warningQRCode(){
+			alert("Please scan this QRCode below !" + "\n" + "Thanks for your cooperation.");
+			
+		}
+		
+		
+		window.onload = function(){
+		
+			document.getElementById('qrcode').onclick = function(){
+				warningQRCode();
+				var msg = document.getElementById("content");
+				var imgSrc = QRCode(msg.innerHTML, 300, 300);
+				msg.innerHTML = '<img src="' + imgSrc + '" alt="" />';
+				OnClientClick="this.button='disabled'";
+			};
+		};
+		
+		
+		
+		
+	</script>
+	
+	
+	<style type="text/css">
+	.section{
+		font-size: 5em;
+		text-align: center;
+		font-family: Helvetica;
+		
+	}
+	.slide{
+		
+		font-family: Helvetica;
+		
+	}
+	
+	.li{
+		position:relative; 
+		top:10px; 
+		text-align: left;
+		left: 35%;
+		font-family: Helvetica;
+		font-size: 22px;
+		line-height: 30px;
+	}
+	.Backgroundli{
+		position:relative; 
+		top:10px; 
+		text-align: left;
+		left: 29%;
+		font-family: Helvetica;
+		font-size: 24px;
+		line-height: 40px;
+		 
+	}
+	
+	.iconColor a #iconColor1 {
+		color:rgba(41, 148, 255,1.0);	
+	}
+	.iconColor a:hover #iconColor1{
+		color:rgba(41, 148, 255,0.5);
+	}
+	.iconColor a #iconColor2 {
+		color:rgba(255, 129, 66,1.0);	
+	}
+	.iconColor a:hover #iconColor2{
+		color:rgba(255, 129, 66,0.5);
+	}
+	.iconColor a #iconColor3 {
+		color:rgba(167, 255, 36,1.0);	
+	}
+	.iconColor a:hover #iconColor3{
+		color:rgba(167, 255, 36,0.5);
+	}
+	.iconColor a #iconColor4 {
+		color:rgba(201, 141, 193,1.0);	
+	}
+	.iconColor a:hover #iconColor4{
+		color:rgba(201, 141, 193,0.5);
+	}
+	.addressType {
+		font-size: 16px;
+		font-family: Helvetica;
+		  
+	}
+	#menu li {
+	display:inline-block;
+	margin: 10px;
+	color: #000;
+	background:#fff;
+	background: rgba(255,255,255, 0.5);
+	-webkit-border-radius: 10px;
+            border-radius: 10px;
+	}
+	#menu li.active{
+		background:#666;
+		background: rgba(0,0,0, 0.5);
+		color: #fff;
+	}
+	#menu li a{
+		text-decoration:none;
+		color: #000;
+	}
+	#menu li.active a:hover{
+		color: #000;
+	}
+	#menu li:hover{
+		background: rgba(255,255,255, 0.8);
+	}
+	#menu li a,
+	#menu li.active a{
+		padding: 9px 18px;
+		display:block;
+	}
+	#menu li.active a{
+		color: #fff;
+	}
+	#menu{
+	position:fixed;
+	top:0;
+	left:0;
+	height: 40px;
+	z-index: 70;
+	width: 100%;
+	padding: 0;
+	margin:0;
+	}
+	
+</style>
+
+
+
+  </head>
+  <body onload="ShowTime();">
+		<ul id="menu">
+			<li data-menuanchor="firstPage"><a href="#firstPage">HomPage</a></li>
+			<li data-menuanchor="secondPage"><a href="#secondPage">BackGround</a></li>
+			<li data-menuanchor="3rdPage"><a href="#3rdPage">News</a></li>
+			<li data-menuanchor="4thpage"><a href="#4thpage">Others</a></li>
+			<li data-menuanchor="5thpage"><a href="#5thpage">Contact With Clement</a></li>
+		</ul>
+		
+    	<div id="fullpage">
+		<div class="section" data-anchor="HomPage"><i>Welcome</i> to Clement's Life<hr>
+		
+		</div>
+		
+		<div class="section" data-anchor="BackGround">
+			
+			<div class="slide">
+			<i>About</i> Clement<br>
+			<img src="photo/liontest.jpg" width="20%" ></img> <i>x</i> <a style="font-size: 52px; color:#ffffff">Interests</a>
+				<center ul>
+				<div class="li">
+				<li>Watching NBA</li>	
+				<li>Learn how to code</li>
+				<li>Reading</li>
+				</ul>
+				</div>
+			</div>
+			<div class="slide">
+				
+				<a style="font-size: 62px ;color:#ffffff">Background <i>x</i> Professional</a>
+				<div class="Backgroundli">
+				<i class="fa fa-graduation-cap" aria-hidden="true"></i>Master of Accounting, NCKU, 2015.<br>
+				<i class="fa fa-graduation-cap" aria-hidden="true"></i>Bachelor of Business Administration, NTUST, 2013.
+				
+				</div>
+			</div>
+			
+		</div>
+					
+		<div class="section" data-anchor="News" ><i>News</i> With Clement
+		
+			
+			<!-- Slideshow -->
+			<center>
+			
+			<div class="bx-viewport" style="width: 40%;padding-right:30px; overflow: hidden; position: relative">
+			<ul class="slideshow">
+			<li><img src="photo/photo1.jpg" /></li>
+			<li><img src="photo/photo2.jpg" /></li>
+			<li><img src="photo/photo3.jpg" /></li>
+			<li><img src="photo/photo3.jpg" /></li>
+			<li><img src="photo/photo3.jpg" /></li>
+			<li><img src="photo/photo3.jpg" /></li>
+			</ul>
+			</div>
+			
+			</center>
+		</div>
+		
+		<div class="section" data-anchor="Others" ><i>Others</i> With Clement
+		
+			
+			<div class="grid" style="font-size: 12px">
+			<div class="col_4" style="border:3px #FFD382 groove">
+			<!-- Align Left -->
+			<img class="align-left" src="http://placehold.it/100x100/4D99E0/ffffff.png&text=100x100" width="100" height="100" />
+			<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+			ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation 
+			ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor 
+			in hendrerit in vulputate velit esse molestie consequat.</p>
+			
+			</div>
+			<div class="col_4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+			nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</div>
+			
+			<div class="col_4">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy 
+			nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam.</div>
+				
+			
+			
+			</div>
+		
+		</div>
+		
+		<div class="section" data-anchor="Contact With Clement" ><i>Contact</i> With Clement
+		
+			<div class="slide">	
+				<center ul>
+				
+				<div class="iconColor">
+				<a href="http://www.facebook.com/ClementChiang920"><i class="fa fa-facebook-square" aria-hidden="true" id="iconColor1"></i></a>
+				<a href="https://www.instagram.com/yusheng.chiang"><i class="fa fa-instagram" aria-hidden="true" id="iconColor2"></i></a>
+				<a href="https://plus.google.com/101348445501650571181/posts"><i class="fa fa-google-plus-square" aria-hidden="true" id="iconColor3"></i></a>
+				<a href="mailto:g333321@gmail.com ?subject=Hello!Clement &body=Hi, I'm ___ %0A%0A There is my problem about ____ and my phone number is ____. %0A Thanks."><i class="fa fa-envelope-square" aria-hidden="true" id="iconColor4"></i></a>
+				</div>
+				</ul>
+				
+				<div class="addressType" style="font-size: 18px  ;line-height: 28px">
+					<a style="font-size: 38px"><strong>Clement.<i>LifeShare</i></strong></a><br>
+					No.4, Aly. 1, Ln. 51, Xuefu Rd.<br>
+					Tamsui Dist., New Taipei City 25142, Taiwan (R.O.C.)<br>
+					g333321@gmail.com<br>
+				</div>
+				<br>
+				<div id="showbox" style="font-size: 12px"></div>
+			
+			</div>
+			
+			<div class="slide">
+			
+			
+				<div id="content">
+				<input style="font-size: 36px ;font-family: Helvetica" type="button" button class="medium blue" value="Click button and find our QRCode out" id="qrcode" />
+				</div>
+			
+			</div>		
+			
+		</div>
+  </body>
+</html>
